@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <div id="envelope-wrapper" class="envelope-wrapper">
             <div class="envelope">
                 <div class="letter">
@@ -25,33 +25,7 @@
         </div>
     </div>
     <script>
-        function showAlert() {
-            const currentDate = new Date();
-            const targetDate = new Date(currentDate.getFullYear(), 3, 13, 0, 0, 0); // April 13 12:00 am
-            const timeLeft = targetDate - currentDate;
-
-            if (timeLeft > 0) {
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                const message = `\n${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
-
-                // Update the alert message directly
-                alert(message);
-            } else {
-                clearInterval(interval);
-            }
-        }
-
-        // Initial call to display the alert immediately
-        showAlert();
-
-        // Set interval to update the alert message in real-time
-        const interval = setInterval(showAlert, 1000);
-
-        const envelope = document.getElementById('envelope-wrapper');
+ const envelope = document.getElementById('envelope-wrapper');
         envelope.addEventListener('click', () => {
             envelope.classList.toggle('flap');
         });
